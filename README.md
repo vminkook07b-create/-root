@@ -4,11 +4,15 @@ This project is ready for a romantic whimsical Boyfriend's Day page.
 
 ## Add your music
 
-Place your audio file in the project folder and name it:
+Place your audio files in a folder named `music` inside the project and use these names:
 
-- `music.mp3`
+- `track-1.mp3` for "Baby Now That I Found You"
+- `track-2.mp3` for "Perfect"
+- `track-3.mp3` for "Can't Help Falling in Love"
+- `track-4.mp3` for "We Fell in Love in October"
+- `track-5.mp3` for "Enchanted"
 
-The page is already wired to autoplay this file on load.
+The page is already set to play these in a loop sequence.
 
 ## Open locally
 
@@ -36,7 +40,7 @@ The page currently uses free Unsplash photos. If you want to use your own memori
 
 ## Notes
 
-- Music will autoplay when someone opens the page, but browsers may block autoplay until a click happens. The page includes a click-to-enable fallback.
-- The live page is designed to feel whimsical, soft, romantic, and playful.
+- The browser may block autoplay until a user taps/clicks the page. This site includes a click-to-start fallback.
+- The music player is set up for a 5-song playlist using your chosen songs.
 
 If you want, I can also make a version with your real names, exact favorite colors, or your own real photos inserted.

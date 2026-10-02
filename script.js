@@ -125,15 +125,41 @@ for (let i = 0; i < 1000; i++) {
 
 container.innerHTML = reasonsList.join('');
 
-const audio = document.getElementById('bgMusic');
-const playMusic = () => {
-  if (!audio) return;
-  audio.volume = 0.45;
-  audio.play().catch(() => {});
-};
+const playlist = [
+  { title: 'Baby Now That I Found You', src: 'music/track-1.mp3' },
+  { title: 'Perfect', src: 'music/track-2.mp3' },
+  { title: 'Can’t Help Falling in Love', src: 'music/track-3.mp3' },
+  { title: 'We Fell in Love in October', src: 'music/track-4.mp3' },
+  { title: 'Enchanted', src: 'music/track-5.mp3' }
+];
 
-window.addEventListener('load', playMusic);
-document.addEventListener('click', playMusic, { once: true });
+const audio = document.getElementById('bgMusic');
+let currentTrackIndex = 0;
+
+function setTrack(index) {
+  currentTrackIndex = index;
+  audio.src = playlist[index].src;
+  audio.load();
+  audio.play().catch(() => {});
+}
+
+function nextTrack() {
+  const nextIndex = (currentTrackIndex + 1) % playlist.length;
+  setTrack(nextIndex);
+}
+
+function playPlaylist() {
+  if (!playlist.length) return;
+  setTrack(0);
+}
+
+window.addEventListener('load', () => {
+  audio.volume = 0.45;
+});
+
+document.addEventListener('click', playPlaylist, { once: true });
+
+audio.addEventListener('ended', nextTrack);
 
 const envelope = document.getElementById('envelope');
 const openButton = document.getElementById('openButton');
